@@ -16,8 +16,8 @@
 <body>
     <div class="wrapper" id="app">
         <ul>
-            <li>
-                <button @click="getEmails()">cliccami</button>
+            <li v-for="email in emailsArray">
+                {{ email }}
             </li>
         </ul>
     </div>

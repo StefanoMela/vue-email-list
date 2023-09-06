@@ -1,13 +1,13 @@
 
 
-axios
-    .get('https://flynn.boolean.careers/exercises/api/random/mail')
-    .then((response) => {
+// axios
+//     .get('https://flynn.boolean.careers/exercises/api/random/mail')
+//     .then((response) => {
 
-        console.log(response);
-        console.log(response.data);
-        console.log(response.data.response);
-});
+//         console.log(response);
+//         console.log(response.data);
+//         console.log(response.data.response);
+//     });
 
 
 
@@ -18,7 +18,7 @@ createApp({
     data() {
         return {
 
-            emailsArray: "",
+            emailsArray: [],
 
         }
     },
@@ -37,11 +37,18 @@ createApp({
 
                         console.log(result + " il cui indice è :" + [i]);
 
+                        this.emailsArray.push(result)
+
                         console.log(this.emailsArray);
                     });
 
             };
         },
     },
+
+    mounted () {
+
+        this.getEmails();
+    }
 
 }).mount('#app')
