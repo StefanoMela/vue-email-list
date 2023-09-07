@@ -17,7 +17,7 @@
 
 <body>
     <div class="wrapper" id="app">
-        <ul v-if="emailsArray.length == 10">
+        <ul v-show="emailsArray.length >= maxEmailsFetched">
             <li v-for="email in emailsArray">
                 {{ email }}
             </li>

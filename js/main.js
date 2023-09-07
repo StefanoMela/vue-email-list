@@ -1,11 +1,19 @@
-axios
-    .get('https://flynn.boolean.careers/exercises/api/random/mail')
-    .then((response) => {
+/**
+* 
+ axios
+     .get('https://flynn.boolean.careers/exercises/api/random/mail')
+     .then((response) => {
+ 
+         console.log(response);
+         console.log(response.data);
+         console.log(response.data.response);
+ });
 
-        console.log(response);
-        console.log(response.data);
-        console.log(response.data.response);
-});
+* 
+*/
+
+
+
 
 const { createApp } = Vue
 
@@ -14,15 +22,16 @@ createApp({
         return {
 
             emailsArray: [],
+            maxEmailsFetched: 10,
 
         }
     },
 
     methods: {
 
-        getEmails() {
+        fetchEmails() {
 
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < this.maxEmailsFetched; i++) {
 
                 axios
                     .get('https://flynn.boolean.careers/exercises/api/random/mail')
@@ -43,7 +52,7 @@ createApp({
 
     mounted() {
 
-        this.getEmails();
+        this.fetchEmails();
     }
 
 }).mount('#app')
